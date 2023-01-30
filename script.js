@@ -42,16 +42,10 @@ function getData(key) {
 function JSONToData(json) {
   return JSON.parse(json);
 }
-function showUsers(a = false) {
+function print(data) {
   // FIXME: fixed doublicating data when print;
   $list.innerHTML = "";
   // end
-  let data
-  if (a == false) {
-    data = getData("list");
-  } else {
-    data = a;
-  }
   data.forEach((element) => {
     $list.insertAdjacentHTML(
       "afterbegin",
@@ -65,6 +59,10 @@ function showUsers(a = false) {
     `
     );
   });
+}
+function showUsers() {
+  let data = getData("list");
+  print(data);
 }
 
 // TODO: search and sort;
@@ -97,8 +95,8 @@ function s() {
   });
   if (flag == false) {
     alert("no such element");
-  }else{
-    showUsers(list)
+  } else {
+    print(list);
   }
 }
 //end
